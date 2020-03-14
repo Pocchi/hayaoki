@@ -3,16 +3,16 @@
 }
 
 .App-logo {
-  pointer-events: none;
-  width: 200px;
   flex: none;
   margin: 0 0 0 -10px;
+  pointer-events: none;
+  width: 200px;
 }
 
 .App-header {
-  height: 80px;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 80px;
   justify-content: center;
 }
 
