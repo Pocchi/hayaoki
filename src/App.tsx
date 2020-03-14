@@ -18,16 +18,19 @@ let calendarDays = [];
 let tmpDays: moment.Moment[] = [];
 
 while(moment(tmpDay).isSameOrBefore(END_WEEK)) {
-  if (tmpDays.length == 7) {
+  if (tmpDays.length === 7) {
     tmpDays.push(tmpDay);
     calendarDays.push(tmpDays);
     tmpDays = [];
   } else {
     tmpDays.push(tmpDay);
   }
-  moment(tmpDay).add(1, 'days');
+  tmpDay.add(1, 'days');
 }
 console.log(calendarDays);
+console.log(BEFORE_MONTH);
+console.log(NOW_DATE);
+console.log(AFTER_MONTH);
 
 interface AppState {
   currentDate: Date;
@@ -43,6 +46,7 @@ interface AppState {
 class App extends Component<{}, AppState> {
   constructor(props: {}) {
     super(props);
+    console.log('constructor')
   }
   render() {
     const logoAttrs = {
