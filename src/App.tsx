@@ -6,7 +6,6 @@ import moment from 'moment';
 moment.locale('ja');
 
 const NOW_DATE: moment.Moment = moment();
-const getCurrentDate = (date: moment.Moment) => moment(date);
 const getAfterMonth = (date: moment.Moment) => moment(date).add(1, 'month');
 const getBeforeMonth = (date: moment.Moment) => moment(date).add(-1, 'month');
 
@@ -41,7 +40,9 @@ const App: FC = () => {
   const onClickDate = (date: string) => () => {
     // ページ送りはしない
     setSelectDate(moment(date));
+    console.log(date);
   };
+  const getDateClass = (date: string) => moment(date).format('MM') == moment(currentDate).format('MM') ? 'is-current' : '';
   const onClickMonth = (date: string) => () => {
     setCurrentDate(moment(date));
   };
@@ -57,20 +58,32 @@ const App: FC = () => {
       </header>
       <main>
           <div className="Calendar">
-              <table>
+              <div className="Calendar-header">
+                <button className="Calendar-header-prev">
+                  <i className="icon-prev"></i>
+                  <span>{moment(beforeMonth).format('YYYY年M月')}</span>
+                </button>
+                <span className="Calendar-header-current">{moment(currentDate).format('YYYY年M月')}</span>
+                <button className="Calendar-header-next">
+                  <span>{moment(afterMonth).format('YYYY年M月')}</span>
+                  <i className="icon-next"></i>
+                </button>
+              </div>
+              <table className="Calendar-table">
                 <tbody>
                   <tr>
                     {['日', '月', '火', '水', '木', '金', '土'].map((weekday, index) => (
-                      <th key={index}>{weekday}</th>
+                      <th key={index} className={`is-${index} Calendar-th`}>{weekday}</th>
                     ))}
                   </tr>
                   {days.map((week, key) => (
                     <tr key={key}>
                       {week.map((day, index) => (
-                        <td key={`${key}-${index}`}>
-                          <button onClick={onClickDate(day)}>
-                            {moment(day).format('YYYY-MM-DD')}
-                          </button>
+                        <td key={`${key}-${index}`} onClick={onClickDate(day)} className={`Calendar-td ${getDateClass(day)}`}>
+                          <div className="Calendar-date">
+                            {moment(day).format('D')}
+                          </div>
+                          <div className="Calendar-stamp is-maru">○</div>
                         </td>
                       ))}
                     </tr>

@@ -1,5 +1,10 @@
 .App {
+  background-color: #f5f1c2;
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding-bottom: 20px;
   text-align: center;
+  width: 100%;
 }
 
 .App-logo {
@@ -20,3 +25,127 @@
   color: #61dafb;
 }
 
+main {
+  background-color: #fdd71e;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 15px 0;
+  width: calc(100% - 30px);
+}
+
+.Calendar {
+  background-color: white;
+  margin: 0 auto;
+  width: calc(100% - 30px);
+}
+
+.Calendar-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.Calendar-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.Calendar-header-current {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Calendar-header-prev,
+.Calendar-header-next {
+  align-items: center;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+
+  span {
+    margin: 0 10px;
+  }
+}
+
+.icon-prev {
+  display: inline-block;
+  padding-left: 10px;
+  position: relative;
+
+  &::before {
+    border: 0;
+    border-bottom: solid 2px #333;
+    border-left: solid 2px #333;
+    content: '';
+    height: 6px;
+    left: 0;
+    margin-top: -4px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 6px;
+  }
+}
+
+.icon-next {
+  display: inline-block;
+  padding-left: 10px;
+  position: relative;
+
+  &::after {
+    border: 0;
+    border-right: solid 2px #333;
+    border-top: solid 2px #333;
+    content: '';
+    height: 6px;
+    left: 0;
+    margin-top: -4px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 6px;
+  }
+}
+
+.Calendar-th {
+  padding: 0 0 10px 0;
+
+  &.is-6 {
+    color: #6c9af1;
+  }
+
+  &.is-0 {
+    color: #f16c6c;
+  }
+}
+
+.Calendar-td {
+  border: 1px solid #f3e1e1;
+  color: #333;
+  cursor: pointer;
+  opacity: 0.3;
+  padding: 20px 0;
+  width: calc(100% / 7);
+
+  &.is-current {
+    opacity: 1;
+  }
+
+  &:hover {
+    background: #fffdf0;
+  }
+}
+
+.Calendar-stamp {
+  color: #ff983d;
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 10px;
+}
