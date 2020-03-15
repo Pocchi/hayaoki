@@ -52,7 +52,9 @@
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^13.2.1",
     "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-order": "^4.0.0"
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.14.2"
   }
 }

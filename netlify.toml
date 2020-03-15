@@ -1,11 +1,11 @@
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 [build]
-  publish = "./dist"
-  command = "npm run build && mv ._headers dist/_headers"
+  publish = "./build"
+  command = "npm run build && mv ._headers build/_headers"
 
 [context.master]
-  publish = "./dist"
+  publish = "./build"
   command = "npm run build"
 
 
