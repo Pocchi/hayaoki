@@ -138,6 +138,14 @@ main {
     opacity: 1;
   }
 
+  &.is-active {
+    background: #fffdad;
+  }
+
+  &.is-current {
+    opacity: 1;
+  }
+
   &:hover {
     background: #fffdf0;
   }
@@ -147,5 +155,116 @@ main {
   color: #ff983d;
   font-size: 30px;
   font-weight: bold;
+  height: 30px;
   padding-top: 10px;
 }
+
+.Modal {
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+  width: 100vw;
+  z-index: -1;
+
+  &.is-show {
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+.Modal-bg {
+  background: rgba(184, 190, 214, 0.32);
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+}
+
+.Modal-wrapper {
+  left: 50%;
+  max-width: 400px;
+  min-height: 200px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 20px);
+}
+
+.Modal-box {
+  background: #ffff;
+  padding: 20px 0 40px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.Modal-box-header {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.Modal-date {
+  color: #2500ea;
+  margin-right: 5px;
+}
+
+.Modal-button {
+  background: #ff4a4a;
+  border: 1px solid #f54545;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+  width: 150px;
+
+  &:disabled {
+    background: #ccc;
+    border-color: #ccc;
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
+
+.Modal-happy {
+  background: #fff;
+  border: 3px solid #fdd71e;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0;
+  padding: 20px 0 40px;
+  position: absolute;
+  top: 0;
+  transition: 0.4s;
+  width: 100%;
+  z-index: -1;
+
+  &.is-show {
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+.icon-happy {
+  display: block;
+  font-size: 40px;
+}
+
+.Modal-close {
+  align-items: center;
+  display: flex;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: normal;
+  pointer-events: none;
+  position: absolute;
+  right: -10px;
+  top: -40px;
+  vertical-align: middle;
+}
+
