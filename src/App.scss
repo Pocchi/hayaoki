@@ -1,3 +1,11 @@
+$widthTab: 768px;
+
+@mixin sp {
+  @media (max-width: $widthTab) {
+    @content;
+  }
+}
+
 .App {
   background-color: #f5f1c2;
   box-sizing: border-box;
@@ -5,6 +13,10 @@
   padding-bottom: 20px;
   text-align: center;
   width: 100%;
+
+  h1 {
+    margin: 0;
+  }
 }
 
 .App-logo {
@@ -12,6 +24,10 @@
   margin: 0 0 0 -10px;
   pointer-events: none;
   width: 200px;
+
+  @include sp {
+    width: 160px;
+  }
 }
 
 .App-header {
@@ -19,6 +35,10 @@
   display: flex;
   height: 80px;
   justify-content: center;
+
+  @include sp {
+    height: 60px;
+  }
 }
 
 .App-link {
@@ -31,12 +51,21 @@ main {
   max-width: 1080px;
   padding: 15px 0;
   width: calc(100% - 30px);
+
+  @include sp {
+    padding: 10px 0;
+    width: 100%;
+  }
 }
 
 .Calendar {
   background-color: white;
   margin: 0 auto;
   width: calc(100% - 30px);
+
+  @include sp {
+    width: calc(100% - 20px);
+  }
 }
 
 .Calendar-table {
@@ -54,6 +83,10 @@ main {
 .Calendar-header-current {
   font-size: 20px;
   font-weight: bold;
+
+  @include sp {
+    font-size: 18px;
+  }
 }
 
 .Calendar-header-prev,
@@ -64,6 +97,10 @@ main {
   cursor: pointer;
   display: flex;
   font-size: 16px;
+
+  @include sp {
+    font-size: 14px;
+  }
 
   span {
     margin: 0 10px;
@@ -115,7 +152,7 @@ main {
 }
 
 .Calendar-th {
-  padding: 0 0 10px 0;
+  padding: 0 0 10px;
 
   &.is-6 {
     color: #6c9af1;
@@ -133,6 +170,10 @@ main {
   opacity: 0.3;
   padding: 20px 0;
   width: calc(100% / 7);
+
+  @include sp {
+    padding: 5px 0;
+  }
 
   &.is-current {
     opacity: 1;
@@ -157,6 +198,10 @@ main {
   font-weight: bold;
   height: 30px;
   padding-top: 10px;
+
+  @include sp {
+    padding-top: 5px;
+  }
 }
 
 .Modal {
@@ -206,6 +251,10 @@ main {
 .Modal-box-header {
   font-size: 20px;
   margin-bottom: 25px;
+
+  @include sp {
+    font-size: 18px;
+  }
 }
 
 .Modal-date {
@@ -222,6 +271,10 @@ main {
   font-weight: bold;
   line-height: 30px;
   width: 150px;
+
+  @include sp {
+    font-size: 16px;
+  }
 
   &:disabled {
     background: #ccc;
@@ -243,6 +296,10 @@ main {
   transition: 0.4s;
   width: 100%;
   z-index: -1;
+
+  @include sp {
+    font-size: 18px;
+  }
 
   &.is-show {
     opacity: 1;
